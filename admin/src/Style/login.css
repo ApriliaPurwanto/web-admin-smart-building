@@ -1,0 +1,8 @@
+.background {
+    background-image: url("../../Asset/Image/Login.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-size: 2000px 700px; */
+    height: '100vh';
+    width: '100%';
+}
