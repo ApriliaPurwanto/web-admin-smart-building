@@ -2,10 +2,15 @@ import React from "react";
 import { Input, InputGroup, InputLeftElement, Icon, AbsoluteCenter, Center, Stack, Button, Flex, Heading, Image, background } from '@chakra-ui/react'
 import { MdPersonOutline, MdLockOutline } from "react-icons/md";
 import '../Style/login.css';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const navigateToDashboard = () => {
+        navigate('/dashboard');
+      };
     return(
-        <div className="background">
+        <Flex className="background">
             <Flex w='100%' h='100vh' justifyContent='center' alignItems='center'>
             
             <Stack spacing={8} align='center'>
@@ -24,13 +29,13 @@ const Login = () => {
                 <Input type='password' placeholder='Password' width='350px' bg='white' fontFamily='sans-serif'/>
             </InputGroup>
 
-            <Button bg='#083828' color='white' _hover={{bg: '#0D543B'}} size='md' width='350px' borderRadius='15px' fontFamily='sans-serif' fontWeight='normal'>
+            <Button onClick={navigateToDashboard} bg='#083828' color='white' _hover={{bg: '#0D543B'}} size='md' width='350px' borderRadius='15px' fontFamily='sans-serif' fontWeight='normal'>
                 Login
             </Button>
             </Stack>
             
             </Flex>
-            </div>
+            </Flex>
     )
 }
 
