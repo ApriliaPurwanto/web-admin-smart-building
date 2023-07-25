@@ -2,13 +2,23 @@ import React, { useState, useEffect } from "react";
 import {  Button, Card, CardBody, CardHeader, Center, Flex, HStack, Heading, Icon, Image, SimpleGrid, Spacer, Stack, Text, VStack, color, textDecoration } from '@chakra-ui/react'
 import {  MdLaptopChromebook, MdLightbulbOutline, MdHome, MdArrowUpward, MdArrowDownward } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { routePageName } from "../../Redux/action";
+import Dashboard from "../../Page/dashboard";
 
 const Sidebar = () => {
     const navigate = useNavigate();
-    const navigateToLogin = () => {
-        navigate('/login');
-      };
+    // const navigateToLogin = () => {
+    //     navigate('/login');
+    //   };
+
+    const dispatch = useDispatch();
+
+	const patchRoute = (data) => {
+		dispatch(routePageName(data));
+	};
+	const { routeName } = useSelector((state) => state.userReducer);
     return (
         <Flex
         height='100vh'
@@ -37,15 +47,22 @@ const Sidebar = () => {
                 w='90%'
                 justifyContent='flex-start'
                 cursor='pointer'
-                background='white'
+                background={routeName=='Dashboard'? 'white':'#2F8286'}
                 borderRadius='4px'
                 paddingLeft='20px'
                 py={2}>
-                <Icon as={MdLaptopChromebook} color='#2F8286' w={6} h={6}/>
+                <Icon as={MdLaptopChromebook} color={routeName=='Dashboard'? '#2F8286':'white'} w={6} h={6}/>
+                <Link
+                to={'/admin/dashboard'}
+                onClick={() => {
+                    patchRoute('Dashboard')
+                }}
+            >
                 <Text
                     fontWeight='medium'
                     fontSize={22}
-                    color='#2F8286'>Dashboard</Text>
+                    color={routeName=='Dashboard'? '#2F8286':'white'}>Dashboard</Text>
+                </Link>
             </HStack>
 
             <HStack 
@@ -53,17 +70,24 @@ const Sidebar = () => {
                 w='90%'
                 justifyContent='flex-start'
                 cursor='pointer'
-                background='#2F8286'
+                background={routeName=='Room'? 'white':'#2F8286'}
                 borderRadius='4px'
                 paddingLeft='20px'
                 py={2}
                 _hover={{ bg: '#265958', borderRadius:'5px' }}
                 >
-                <Icon as={MdHome} color='white' w={6} h={6}/>
+                <Icon as={MdHome} color={routeName=='Room'? '#2F8286':'white'} w={6} h={6}/>
+                <Link
+                to={'/admin/room'}
+                onClick={() => {
+                    patchRoute('Room')
+                }}
+            >
                 <Text
                     fontWeight='medium'
                     fontSize={22}
-                    color='white'>Room</Text>
+                    color={routeName=='Room'? '#2F8286':'white'}>Room</Text>
+                </Link>
             </HStack>
 
             <HStack 
@@ -71,18 +95,25 @@ const Sidebar = () => {
                 w='90%'
                 justifyContent='flex-start'
                 cursor='pointer'
-                background='#2F8286'
+                background={routeName=='Device'? 'white':'#2F8286'}
                 borderRadius='4px'
                 paddingLeft='20px'
                 py={2}
                 _hover={{ bg: '#265958', borderRadius:'5px' }}
                 >
-                <Icon as={MdLightbulbOutline} color='white' w={6} h={6}/>
+                <Icon as={MdLightbulbOutline} color={routeName=='Device'? '#2F8286':'white'} w={6} h={6}/>
+                <Link
+                to={'/admin/device'}
+                onClick={() => {
+                    patchRoute('Device')
+                }}
+            >
                 <Text
                     fontWeight='medium'
                     fontSize={22}
-                    color='white'>Device</Text>
-            </HStack>          
+                    color={routeName=='Device'? '#2F8286':'white'}>Device</Text>
+                </Link>  
+            </HStack>        
         </VStack>
 
         <Flex
@@ -90,7 +121,7 @@ const Sidebar = () => {
             marginBottom='40px'
             justifyContent='center'
             >
-                <Button onClick={navigateToLogin} bg='#AB221D' color='white' _hover={{bg: '#D22B25'}} size='md' width='180px' borderRadius='15px' fontFamily='sans-serif' fontWeight='normal'>
+                <Button bg='#AB221D' color='white' _hover={{bg: '#D22B25'}} size='md' width='180px' borderRadius='15px' fontFamily='sans-serif' fontWeight='normal'>
                     <HStack>
                         <Text
                             fontWeight='medium'

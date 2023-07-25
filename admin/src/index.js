@@ -3,6 +3,8 @@ import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { Store } from './Redux/store';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
@@ -10,10 +12,12 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <StrictMode>
     <ChakraProvider>
-      <BrowserRouter>
-        <ColorModeScript/>
-        <App/>
-      </BrowserRouter>
+      <Provider store={Store}>
+        <BrowserRouter>
+          <ColorModeScript/>
+          <App/>
+        </BrowserRouter>
+      </Provider>
     </ChakraProvider>
   </StrictMode>
 );

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import {  Button, Card, CardBody, CardHeader, Center, Flex, HStack, Heading, Icon, Image, SimpleGrid, Spacer, Stack, Text, VStack, color, textDecoration } from '@chakra-ui/react'
-import {  MdLaptopChromebook, MdLightbulbOutline, MdHome, MdArrowUpward, MdArrowDownward } from "react-icons/md";
-import { FiLogOut } from "react-icons/fi";
+import { Flex, Heading} from '@chakra-ui/react'
 import Sidebar from "./sidebar";
 import DashboardPage from "../../Page/dashboardPage";
+import { Outlet } from 'react-router-dom'
+import { useSelector } from "react-redux";
 
 const Navigation = () =>{
+    const { routeName } = useSelector((state) => state.userReducer);
     return(
         <Flex
             height='100vh'
@@ -32,7 +33,7 @@ const Navigation = () =>{
                         fontWeight='semibold'
                         paddingLeft='40px'
                         >
-                        Dashboard
+                        {routeName}
                     </Heading>
                 </Flex>
 
@@ -44,7 +45,7 @@ const Navigation = () =>{
                     flexDir='column'
                     alignItems='center'
                 >
-                    <DashboardPage/>
+                    <Outlet/>
                     
                 </Flex>
             </Flex>
