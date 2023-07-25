@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
     const navigate = useNavigate();
     const navigateToDashboard = () => {
-        navigate('/dashboard');
+        navigate('/admin');
       };
     return(
         <Flex className="background">

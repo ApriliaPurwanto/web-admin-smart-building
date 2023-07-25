@@ -13,6 +13,10 @@ const Dashboard = () => {
     const navigateToLogin = () => {
         navigate('/login');
       };
+
+    const navigateToRoom = () => {
+        navigate('/room');
+      };
     return(
         <Flex>
             <Flex
@@ -55,11 +59,11 @@ const Dashboard = () => {
                             color='#2F8286'>Dashboard</Text>
                     </HStack>
 
-                    <HStack
+                    <HStack onClick={navigateToRoom}
                         spacing={6}
                         w='120%'
                         // justifyContent='left'
-                        // _hover={{ bg: '#265958', borderRadius:'5px' }}
+                        _hover={{ bg: '#265958', borderRadius:'5px' }}
                         paddingLeft='30px'
                         cursor='pointer'
                         py={2}>
@@ -74,7 +78,7 @@ const Dashboard = () => {
                         spacing={6}
                         w='120%'
                         // justifyContent='center'
-                        // _hover={{ bg: '#265958', borderRadius:'5px' }}
+                        _hover={{ bg: '#265958', borderRadius:'5px' }}
                         paddingLeft='30px'
                         cursor='pointer'
                         py={2}>
@@ -107,7 +111,7 @@ const Dashboard = () => {
                     </Heading>
                 </Flex>
 
-                <Flex marginTop='25px'>
+                <Flex marginTop='30px'>
                     
                     <SimpleGrid spacing={16} templateColumns='repeat(3, minmax(10px, 300px))'>
                     
@@ -153,7 +157,7 @@ const Dashboard = () => {
                     </SimpleGrid>
                 </Flex>
 
-                <Flex marginTop='25px'>
+                <Flex marginTop='30px'>
 
                         <Card>
                             <Flex justifyContent='right'>
@@ -179,14 +183,14 @@ const Dashboard = () => {
                                 objectFit='cover'
                                 src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
                                 alt='Chakra UI'
-                                width='990px'
+                                width='1000px'
                                 height='500px'
                             /> :
                             <Image
                                 objectFit='cover'
                                 src='https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2021/10/28064854/12.-Tips-Merawat-Anak-Kucing-Munchkin.jpg.webp'
                                 alt='Chakra UI'
-                                width='990px'
+                                width='1000px'
                                 height='500px'
                             />
                             }
