@@ -111,10 +111,7 @@ const DashboardPage = () => {
                     </CardBody>
                 </Card>
             </Flex> 
-        </Stack>
-     
-
-                
+        </Stack>        
     )
 }
 export default DashboardPage;

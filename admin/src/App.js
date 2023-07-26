@@ -4,13 +4,14 @@ import {
 	Route,
 	Navigate,
 } from "react-router-dom";
-import Login from "./Page/login";
+import Login from "./Page/loginPage";
 import Dashboard from "./Page/dashboard";
 import Room from "./Page/room";
 import Navigation from "./Components/Navigation/navigation";
 import DashboardPage from "./Page/dashboardPage";
 import RoomPage from "./Page/roomPage";
 import DevicePage from "./Page/devicePage";
+import ManagementPage from "./Page/managementPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="dashboard" element={<DashboardPage/>}/>
         <Route path="room" element={<RoomPage/>}/>
         <Route path="device" element={<DevicePage/>}/>
+        <Route path="management" element={<ManagementPage/>}/>
       </Route>
 
     </Routes>
