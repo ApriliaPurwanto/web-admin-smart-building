@@ -14,7 +14,7 @@ const DashboardPage = () => {
     //   };
     return(
         <Stack>
-            <SimpleGrid spacing={16} templateColumns='repeat(3, minmax(10px, 300px))' marginTop='20px'>
+            <SimpleGrid spacing={16} templateColumns='repeat(3, minmax(10px, 307px))' marginTop='20px'>
                 <Card color='#2F8286'>
                     <CardBody>
                         <Center>
@@ -61,7 +61,7 @@ const DashboardPage = () => {
             </SimpleGrid>
 
             <Flex marginTop='30px' marginBottom='30px'>
-                <Card>
+                <Card width='1050px'>
                     <Flex justifyContent='right'>
                         <Button
                             onClick={()=>changeImage(!isSecond)}
@@ -97,14 +97,14 @@ const DashboardPage = () => {
                                 objectFit='cover'
                                 src='https://p1.pxfuel.com/preview/176/155/652/cat-landscape-animals-cute-cat-eyes.jpg'
                                 alt='Chakra UI'
-                                width='990px'
+                                width='100%'
                                 height='500px'
                             /> :
                             <Image
                                 objectFit='cover'
                                 src='https://media.istockphoto.com/id/1316920139/photo/white-angora-cat.jpg?s=612x612&w=0&k=20&c=4BjzdORizEkeSmTquuYyylKxe_C2qbbiOv4GmtJhlIk='
                                 alt='Chakra UI'
-                                width='990px'
+                                width='100%'
                                 height='500px'
                             />
                         }

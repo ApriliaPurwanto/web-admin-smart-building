@@ -45,8 +45,7 @@ const Navigation = () =>{
                     flexDir='column'
                     alignItems='center'
                 >
-                    <Outlet/>
-                    
+                    <Outlet/> 
                 </Flex>
             </Flex>
         </Flex>

@@ -11,7 +11,10 @@ import Navigation from "./Components/Navigation/navigation";
 import DashboardPage from "./Page/dashboardPage";
 import RoomPage from "./Page/roomPage";
 import DevicePage from "./Page/devicePage";
-import ManagementPage from "./Page/managementPage";
+import AccountPage from "./Page/accountPage";
+import AddRoomPage from "./Page/addRoomPage";
+import AddDevicePage from "./Page/addDevicePage";
+import RoomDetailPage from "./Page/roomDetailPage";
 
 function App() {
   return (
@@ -22,8 +25,11 @@ function App() {
       <Route path="/admin" element={<Navigation/>} >
         <Route path="dashboard" element={<DashboardPage/>}/>
         <Route path="room" element={<RoomPage/>}/>
+        <Route path="room-detail" element={<RoomDetailPage/>}/>
+        <Route path="add-room" element={<AddRoomPage/>}/>
         <Route path="device" element={<DevicePage/>}/>
-        <Route path="management" element={<ManagementPage/>}/>
+        <Route path="add-device" element={<AddDevicePage/>}/>
+        <Route path="account" element={<AccountPage/>}/>
       </Route>
 
     </Routes>

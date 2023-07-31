@@ -19,28 +19,38 @@ import {
     IconButton,
     Box,
     Heading,
+    BreadcrumbItem,
+    Breadcrumb,
+    BreadcrumbLink,
 } from '@chakra-ui/react'
-import { FiPlus } from "react-icons/fi";
+import { FiChevronRight, FiPlus } from "react-icons/fi";
 import { MdDelete, MdEdit } from 'react-icons/md';
 
 const RoomPage = () => {
     return(
             <Flex
+                bg='white'
                 height='100vh'
-                width='1030px'
-                bg='white'>
+                width='100%'
+                paddingLeft='40px'
+                >
                     <Stack>
                         <Flex
                             height='30px'
                             width='100%'
                             bg='white'
                             alignItems='center'>
-                                <Heading
+                                {/* <Heading
                                     as='h4'
                                     size='md'
                                     fontWeight='medium'>
                                         Room List
-                                </Heading>
+                                </Heading> */}
+                            <Breadcrumb spacing='8px' separator={<FiChevronRight color='gray.500' />}>
+                                <BreadcrumbItem isCurrentPage>
+                                    <BreadcrumbLink href='#'>Room List</BreadcrumbLink>
+                                </BreadcrumbItem>
+                            </Breadcrumb>
                         </Flex>
 
                         <Flex
@@ -64,7 +74,6 @@ const RoomPage = () => {
                                             <Tr>
                                                 <Th isNumeric>No.</Th>
                                                 <Th>Room Name</Th>
-                                                <Th>Type</Th>
                                                 <Th>Location</Th>
                                                 <Th>Description</Th>
                                                 <Th>Action</Th>
@@ -74,7 +83,6 @@ const RoomPage = () => {
                                             <Tr>
                                                 <Td isNumeric>1</Td>
                                                 <Td>A101</Td>
-                                                <Td>Meeting Room</Td>
                                                 <Td>Gedung A lt. 1</Td>
                                                 <Td>Room is functioned as regular meeting room</Td> 
                                                 <Td>

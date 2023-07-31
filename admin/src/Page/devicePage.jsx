@@ -19,29 +19,38 @@ import {
     IconButton,
     Box,
     Heading,
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
 } from '@chakra-ui/react'
-import { FiPlus } from "react-icons/fi";
+import { FiChevronRight, FiPlus } from "react-icons/fi";
 import { VscCircleFilled } from "react-icons/vsc";
 import { MdAddCircleOutline, MdDelete, MdEdit } from 'react-icons/md';
 
 const DevicePage = () => {
     return(
         <Flex
+        bg='white'
         height='100vh'
-        width='1030px'
-        bg='white'>
+        width='100%'
+        paddingLeft='40px'>
             <Stack>
                 <Flex
                     height='30px'
                     width='100%'
                     bg='white'
                     alignItems='center'>
-                        <Heading
+                        {/* <Heading
                             as='h4'
                             size='md'
                             fontWeight='medium'>
                                 Device List
-                        </Heading>
+                        </Heading> */}
+                        <Breadcrumb spacing='8px' separator={<FiChevronRight color='gray.500' />}>
+                            <BreadcrumbItem isCurrentPage>
+                                <BreadcrumbLink href='#'>Device List</BreadcrumbLink>
+                            </BreadcrumbItem>
+                        </Breadcrumb>
                 </Flex>
 
                 <Flex
@@ -63,7 +72,7 @@ const DevicePage = () => {
                                 <Table variant='simple'>
                                     <Thead>
                                     <Tr>
-                                        <Th isNumeric>No.</Th>
+                                        <Th>No.</Th>
                                         <Th>Device Name</Th>
                                         <Th>Type</Th>
                                         <Th>Room Name</Th>

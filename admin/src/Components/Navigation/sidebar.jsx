@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {  Button, Card, CardBody, CardHeader, Center, Flex, HStack, Heading, Icon, Image, SimpleGrid, Spacer, Stack, Text, VStack, color, textDecoration } from '@chakra-ui/react'
-import {  MdLaptopChromebook, MdLightbulbOutline, MdHome } from "react-icons/md";
+import {  MdLaptopChromebook, MdLightbulbOutline, MdHome, MdPersonOutline } from "react-icons/md";
 import { FiLogOut, FiSettings } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,7 +50,7 @@ const Sidebar = () => {
                 _hover={routeName=='Dashboard'? { bg: 'white', borderRadius:'5px' } : { bg: '#265958', borderRadius:'5px' }}
                 background={routeName=='Dashboard'? 'white':'#2F8286'}
                 borderRadius='4px'
-                paddingLeft='15px'
+                paddingLeft='25px'
                 py={2}>
                 <Icon as={MdLaptopChromebook} color={routeName=='Dashboard'? '#2F8286':'white'} w={6} h={6}/>
                 <Link
@@ -73,7 +73,7 @@ const Sidebar = () => {
                 cursor='pointer'
                 background={routeName=='Room'? 'white':'#2F8286'}
                 borderRadius='4px'
-                paddingLeft='15px'
+                paddingLeft='25px'
                 py={2}
                 _hover={routeName=='Room'? { bg: 'white', borderRadius:'5px' } : { bg: '#265958', borderRadius:'5px' }}
                 >
@@ -98,7 +98,7 @@ const Sidebar = () => {
                 cursor='pointer'
                 background={routeName=='Device'? 'white':'#2F8286'}
                 borderRadius='4px'
-                paddingLeft='15px'
+                paddingLeft='25px'
                 py={2}
                 _hover={routeName=='Device'? { bg: 'white', borderRadius:'5px' } : { bg: '#265958', borderRadius:'5px' }}
                 >
@@ -121,23 +121,23 @@ const Sidebar = () => {
                 w='90%'
                 justifyContent='flex-start'
                 cursor='pointer'
-                background={routeName=='Management'? 'white':'#2F8286'}
+                background={routeName=='Account'? 'white':'#2F8286'}
                 borderRadius='4px'
-                paddingLeft='15px'
+                paddingLeft='25px'
                 py={2}
-                _hover={routeName=='Management'? { bg: 'white', borderRadius:'5px' } : { bg: '#265958', borderRadius:'5px' }}
+                _hover={routeName=='Account'? { bg: 'white', borderRadius:'5px' } : { bg: '#265958', borderRadius:'5px' }}
                 >
-                <Icon as={FiSettings} color={routeName=='Management'? '#2F8286':'white'} w={5} h={5}/>
+                <Icon as={MdPersonOutline} color={routeName=='Account'? '#2F8286':'white'} w={6} h={6}/>
                 <Link
-                to={'/admin/management'}
+                to={'/admin/account'}
                 onClick={() => {
-                    patchRoute('Management')
+                    patchRoute('Account')
                 }}
             >
                 <Text
                     fontWeight='medium'
                     fontSize={22}
-                    color={routeName=='Management'? '#2F8286':'white'}>Management</Text>
+                    color={routeName=='Account'? '#2F8286':'white'}>Admin</Text>
                 </Link>  
             </HStack>           
         </VStack>
