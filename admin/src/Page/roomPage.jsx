@@ -22,11 +22,35 @@ import {
     BreadcrumbItem,
     Breadcrumb,
     BreadcrumbLink,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+    useToast,
 } from '@chakra-ui/react'
 import { FiChevronRight, FiPlus } from "react-icons/fi";
 import { MdDelete, MdEdit } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 const RoomPage = () => {
+    const navigate = useNavigate();
+    const navigateToAddRoom = () => {
+        navigate('add-room');
+      };
+      const navigateToRoomDetail = () => {
+        navigate('room-detail');
+      };
+      const navigateToRoomEdit = () => {
+        navigate('room-edit');
+      };
+
+      const { isOpen, onOpen, onClose } = useDisclosure()
+
+      const toast = useToast()
     return(
             <Flex
                 bg='white'
@@ -58,7 +82,7 @@ const RoomPage = () => {
                             width='100%'
                             bg='white'
                             marginTop='15px'>
-                                <Button bg='#2F8286' color='white' _hover={{bg: '#265958'}} size='md'  borderRadius='15px' fontFamily='sans-serif' fontWeight='normal'  boxShadow="base">
+                                <Button onClick={navigateToAddRoom} bg='#2F8286' color='white' _hover={{bg: '#265958'}} size='md'  borderRadius='15px' fontFamily='sans-serif' fontWeight='normal'  boxShadow="base">
                                     <HStack spacing={3}>
                                         <Icon as={FiPlus} color='white'/>
                                         <Text>Add Room</Text>
@@ -82,23 +106,44 @@ const RoomPage = () => {
                                             <Tbody>
                                             <Tr>
                                                 <Td isNumeric>1</Td>
-                                                <Td>A101</Td>
+                                                <Td onClick={navigateToRoomDetail} cursor='pointer'>A101</Td>
                                                 <Td>Gedung A lt. 1</Td>
                                                 <Td>Room is functioned as regular meeting room</Td> 
                                                 <Td>
                                                     <HStack>
-                                                        <IconButton
+                                                        <IconButton onClick={navigateToRoomEdit}
                                                             variant='ghost'
                                                             colorScheme='teal'
                                                             fontSize='20px'
                                                             icon={<MdEdit />}
                                                             />
-                                                        <IconButton
+                                                        <IconButton onClick={onOpen}
                                                             variant='ghost'
                                                             colorScheme='red'
                                                             fontSize='20px'
                                                             icon={<MdDelete/>}
                                                             />
+                                                                  <Modal isOpen={isOpen} onClose={onClose}>
+                                                                    <ModalOverlay />
+                                                                    <ModalContent>
+                                                                    <ModalHeader>Delete Room</ModalHeader>
+                                                                    <ModalCloseButton />
+                                                                    <ModalBody>
+                                                                        <Text>Are you sure? You can’t undo this action afterwards.</Text>
+                                                                    </ModalBody>
+
+                                                                    <ModalFooter>
+                                                                        <Button variant='ghost' mr={3} onClick={onClose}>
+                                                                        Cancel
+                                                                        </Button>
+                                                                        <Button
+                                                                        colorScheme='red'
+                                                                        
+                                                                        onClick={onClose}
+                                                                        >Delete</Button>
+                                                                    </ModalFooter>
+                                                                    </ModalContent>
+                                                                </Modal>
                                                     </HStack>
                                                 </Td>
                                             </Tr>

@@ -1,22 +1,69 @@
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Card, CardBody, Center, Flex, HStack, Heading, Icon, IconButton, Image, Stack, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
+import {
+    Button,
+    Card,
+    CardBody,
+    Flex,
+    HStack,
+    Icon,
+    Stack,
+    Text,
+    Table,
+    Thead,
+    Tbody,
+    Tfoot,
+    Center,
+    Image,
+    Tr,
+    Th,
+    Td,
+    TableCaption,
+    TableContainer,
+    IconButton,
+    Box,
+    Heading,
+    BreadcrumbItem,
+    Breadcrumb,
+    BreadcrumbLink,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+    useToast,
+} from '@chakra-ui/react'
 import { FiChevronRight } from "react-icons/fi";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { VscCircleFilled } from "react-icons/vsc";
+import { useNavigate } from "react-router-dom";
 
 const RoomDetailPage = () => {
+    const navigate = useNavigate();
+    const navigateToRoomEdit = () => {
+        navigate('/admin/room/room-edit');
+      };
+
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+    const toast = useToast()
     return(
         <Flex
         bg='white'
         height='100vh'
         width='100%'
         paddingLeft='40px'
+        marginBottom='30px'
         >
             <Stack>
                 <Flex
                     height='30px'
                     width='100%'
                     bg='white'
-                    alignItems='center'>
+                    alignItems='center'
+                    // marginBottom='15px'
+                    >
                         {/* <Heading
                             as='h4'
                             size='md'
@@ -25,8 +72,8 @@ const RoomDetailPage = () => {
                         </Heading> */}
 
                         <Breadcrumb spacing='8px' separator={<FiChevronRight color='gray.500' />}>
-                            <BreadcrumbItem>
-                                <BreadcrumbLink href='/admin/room'>Room List</BreadcrumbLink>
+                            <BreadcrumbItem isCurrentPage>
+                                <BreadcrumbLink>Room List</BreadcrumbLink>
                             </BreadcrumbItem>
 
                             <BreadcrumbItem isCurrentPage>
@@ -35,7 +82,7 @@ const RoomDetailPage = () => {
                         </Breadcrumb>
                 </Flex>
 
-                <Flex marginTop='20px'>
+                <Flex>
                     <Card width='1050px'>
                         <CardBody>
                             <Flex bg='white' width='100%' height='30px' marginBottom='10px' justifyContent='space-between'>
@@ -47,18 +94,38 @@ const RoomDetailPage = () => {
                                 </Heading>
 
                                 <HStack>
-                                    <IconButton
+                                    <IconButton onClick={navigateToRoomEdit}
                                         variant='ghost'
                                         colorScheme='teal'
                                         fontSize='20px'
                                         icon={<MdEdit />}
                                     />
-                                    <IconButton
+                                    <IconButton onClick={onOpen}
                                         variant='ghost'
                                         colorScheme='red'
                                         fontSize='20px'
                                         icon={<MdDelete/>}
                                     />
+                                    <Modal isOpen={isOpen} onClose={onClose}>
+                                        <ModalOverlay />
+                                            <ModalContent>
+                                                <ModalHeader>Delete Room</ModalHeader>
+                                                    <ModalCloseButton />
+                                                        <ModalBody>
+                                                            <Text>Are you sure? You can’t undo this action afterwards.</Text>
+                                                        </ModalBody>
+
+                                                        <ModalFooter>
+                                                            <Button variant='ghost' mr={3} onClick={onClose}>
+                                                                Cancel
+                                                            </Button>
+                                                            <Button
+                                                                colorScheme='red'     
+                                                                onClick={onClose}
+                                                            >Delete</Button>
+                                                        </ModalFooter>
+                                            </ModalContent>
+                                    </Modal>
                                 </HStack>
                             </Flex>
 

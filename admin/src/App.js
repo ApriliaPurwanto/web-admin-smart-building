@@ -15,6 +15,7 @@ import AccountPage from "./Page/accountPage";
 import AddRoomPage from "./Page/addRoomPage";
 import AddDevicePage from "./Page/addDevicePage";
 import RoomDetailPage from "./Page/roomDetailPage";
+import EditRoomPage from "./Page/editRoomPage";
 
 function App() {
   return (
@@ -24,11 +25,15 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/admin" element={<Navigation/>} >
         <Route path="dashboard" element={<DashboardPage/>}/>
+
         <Route path="room" element={<RoomPage/>}/>
-        <Route path="room-detail" element={<RoomDetailPage/>}/>
-        <Route path="add-room" element={<AddRoomPage/>}/>
+        <Route path="room/add-room" element={<AddRoomPage/>}/>
+        <Route path="room/room-detail" element={<RoomDetailPage/>}/>
+        <Route path="room/room-edit" element={<EditRoomPage/>}/>
+
         <Route path="device" element={<DevicePage/>}/>
-        <Route path="add-device" element={<AddDevicePage/>}/>
+        <Route path="devoce/add-device" element={<AddDevicePage/>}/>
+
         <Route path="account" element={<AccountPage/>}/>
       </Route>
 

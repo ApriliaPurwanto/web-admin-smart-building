@@ -1,8 +1,8 @@
-import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Card, CardBody, Flex, HStack, Heading, Input, Select, Stack, Text, Textarea, useToast } from "@chakra-ui/react";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Card, CardBody, Flex, HStack, Heading, Input, Select, Stack, Text, Textarea, useToast, Box } from "@chakra-ui/react";
 import { FiChevronRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
-const AddRoomPage = () => {
+const EditRoomPage = () => {
     const navigate = useNavigate();
     const toast = useToast()
     return(
@@ -31,7 +31,7 @@ const AddRoomPage = () => {
                             </BreadcrumbItem>
 
                             <BreadcrumbItem isCurrentPage>
-                                <BreadcrumbLink>Add Room</BreadcrumbLink>
+                                <BreadcrumbLink>Edit Room</BreadcrumbLink>
                             </BreadcrumbItem>
                         </Breadcrumb>
                 </Flex>
@@ -107,8 +107,7 @@ const AddRoomPage = () => {
                             </Box>
                                       ),
                                     })
-                                  }
-                    >
+                                  }>
                         Save
                     </Button>
                 </Flex>
@@ -118,4 +117,4 @@ const AddRoomPage = () => {
     )
 }
 
-export default AddRoomPage;
+export default EditRoomPage;
