@@ -37,7 +37,10 @@ import {
 import { FiChevronRight } from "react-icons/fi";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { VscCircleFilled } from "react-icons/vsc";
+import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
+import { routePageName } from '../Redux/action';
+import { useEffect } from 'react';
 
 const RoomDetailPage = () => {
     const navigate = useNavigate();
@@ -48,6 +51,14 @@ const RoomDetailPage = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const toast = useToast()
+
+    const dispatch = useDispatch();
+
+    const patchRoute = () => {
+        dispatch(routePageName('Room'));
+    };
+
+    useEffect(() => {patchRoute()},[])
     return(
         <Flex
         bg='white'

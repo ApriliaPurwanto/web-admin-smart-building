@@ -9,8 +9,9 @@ import { routePageName } from "../../Redux/action";
 const Sidebar = () => {
     const navigate = useNavigate();
     const navigateToLogin = () => {
+        patchRoute('Dashboard')
         navigate('/login');
-      };
+    };
 
     const dispatch = useDispatch();
 

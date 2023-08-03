@@ -32,9 +32,12 @@ import {
     useDisclosure,
     useToast,
 } from '@chakra-ui/react'
+import { useEffect } from 'react';
 import { FiChevronRight, FiPlus } from "react-icons/fi";
 import { MdDelete, MdEdit } from 'react-icons/md';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { routePageName } from '../Redux/action';
 
 const RoomPage = () => {
     const navigate = useNavigate();
@@ -51,6 +54,8 @@ const RoomPage = () => {
       const { isOpen, onOpen, onClose } = useDisclosure()
 
       const toast = useToast()
+
+      
     return(
             <Flex
                 bg='white'

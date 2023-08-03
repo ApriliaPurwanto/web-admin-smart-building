@@ -1,9 +1,20 @@
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Card, CardBody, Flex, HStack, Heading, Input, Select, Stack, Text, Textarea, useToast } from "@chakra-ui/react";
 import { FiChevronRight } from "react-icons/fi";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { routePageName } from "../Redux/action";
+import { useEffect } from "react";
 
 const AddRoomPage = () => {
     const toast = useToast()
+
+    const dispatch = useDispatch();
+
+    const patchRoute = () => {
+        dispatch(routePageName('Room'));
+    };
+
+    useEffect(() => {patchRoute()},[])
     return(
         <Flex
         bg='white'

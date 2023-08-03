@@ -1,13 +1,23 @@
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Card, CardBody, Flex, HStack, Heading, IconButton, Input, InputGroup, InputRightElement, Select, Stack, Text, Textarea, useToast } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { FiChevronRight } from "react-icons/fi";
 import { HiEye, HiEyeOff } from "react-icons/hi";
+import { useDispatch } from "react-redux";
+import { routePageName } from "../Redux/action";
 
 const AddAccountPage = () => {
     const toast = useToast()
 
     const [show, setShow] = React.useState(false)
     const handleClick = () => setShow(!show)
+
+    const dispatch = useDispatch();
+
+    const patchRoute = () => {
+        dispatch(routePageName('Account'));
+    };
+
+    useEffect(() => {patchRoute()},[])
     return(
         <Flex
         bg='white'
