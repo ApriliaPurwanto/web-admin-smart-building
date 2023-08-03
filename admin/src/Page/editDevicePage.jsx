@@ -1,7 +1,7 @@
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Card, CardBody, Flex, HStack, Heading, Input, Select, Stack, Text, Textarea, useToast } from "@chakra-ui/react";
 import { FiChevronRight } from "react-icons/fi";
 
-const AddDevicePage = () => {
+const EditDevicePage = () => {
     const toast = useToast()
     return(
         <Flex
@@ -30,7 +30,7 @@ const AddDevicePage = () => {
                             </BreadcrumbItem>
 
                             <BreadcrumbItem isCurrentPage>
-                                <BreadcrumbLink href='#'>Add Device</BreadcrumbLink>
+                                <BreadcrumbLink href='#'>Edit Device</BreadcrumbLink>
                             </BreadcrumbItem>
                         </Breadcrumb>
                 </Flex>
@@ -90,15 +90,15 @@ const AddDevicePage = () => {
                     marginTop='20px'
                     justifyContent='right'
                 >
-                    <Button  
+                    <Button 
                         bg='#2F8286'
-                        color='white'
-                        _hover={{bg: '#265958'}}
-                        size='md'
-                        width='130px'
-                        borderRadius='15px'
-                        fontFamily='sans-serif'
-                        fontWeight='normal'
+                        color='white' 
+                        _hover={{bg: '#265958'}} 
+                        size='md' 
+                        width='130px' 
+                        borderRadius='15px' 
+                        fontFamily='sans-serif' 
+                        fontWeight='normal' 
                         boxShadow="base"
                         onClick={() =>
                             toast({
@@ -110,7 +110,7 @@ const AddDevicePage = () => {
                                           ),
                                         })
                                       }
-                    >
+                        >
                         Save
                     </Button>
                 </Flex>
@@ -119,4 +119,4 @@ const AddDevicePage = () => {
     )
 }
 
-export default AddDevicePage;
+export default EditDevicePage;

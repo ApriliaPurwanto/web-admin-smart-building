@@ -3,7 +3,6 @@ import { FiChevronRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 const AddRoomPage = () => {
-    const navigate = useNavigate();
     const toast = useToast()
     return(
         <Flex

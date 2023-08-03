@@ -1,8 +1,13 @@
-import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Card, CardBody, Flex, HStack, Heading, Input, Select, Stack, Text, Textarea, useToast } from "@chakra-ui/react";
+import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Card, CardBody, Flex, HStack, Heading, IconButton, Input, InputGroup, InputRightElement, Select, Stack, Text, Textarea, useToast } from "@chakra-ui/react";
+import React from "react";
 import { FiChevronRight } from "react-icons/fi";
+import { HiEye, HiEyeOff } from "react-icons/hi";
 
-const AddDevicePage = () => {
+const EditAccountPage = () => {
     const toast = useToast()
+
+    const [show, setShow] = React.useState(false)
+    const handleClick = () => setShow(!show)
     return(
         <Flex
         bg='white'
@@ -26,11 +31,11 @@ const AddDevicePage = () => {
 
                         <Breadcrumb spacing='8px' separator={<FiChevronRight color='gray.500' />}>
                             <BreadcrumbItem isCurrentPage>
-                                <BreadcrumbLink>Device List</BreadcrumbLink>
+                                <BreadcrumbLink>Account List</BreadcrumbLink>
                             </BreadcrumbItem>
 
                             <BreadcrumbItem isCurrentPage>
-                                <BreadcrumbLink href='#'>Add Device</BreadcrumbLink>
+                                <BreadcrumbLink href='#'>Edit Account</BreadcrumbLink>
                             </BreadcrumbItem>
                         </Breadcrumb>
                 </Flex>
@@ -42,41 +47,39 @@ const AddDevicePage = () => {
                             <Flex bg='white' width='100%' marginBottom='20px'>
                                 <Stack width='100%'>
                                     <Text fontWeight='medium'>Name</Text>
-                                    <Input variant='outline' placeholder='Device Name' />
+                                    <Input variant='outline' placeholder='Name' />
                                 </Stack>
                             </Flex>
 
                             <Flex bg='white' width='100%' marginBottom='20px'>
                                 <Stack width='100%'>
-                                    <Text fontWeight='medium'>Type</Text>
-                                        <Select placeholder='Select option'>
-                                            <option value='camera'>Camera</option>
-                                            <option value='pir'>PIR Sensor</option>
-                                        </Select>
-                                </Stack>
-                            </Flex>
-
-                            <Flex bg='white' width='100%' marginBottom='20px'>
-                                <Stack width='100%'>
-                                    <Text fontWeight='medium'>Room Name</Text>
-                                        <Select placeholder='Select option'>
-                                            <option value='a101'>A101</option>
-                                            <option value='a201'>A201</option>
-                                        </Select>
-                                </Stack>
-                            </Flex>
-
-                            <Flex bg='white' width='100%' marginBottom='20px'>
-                                <Stack width='100%'>
-                                    <Text fontWeight='medium'>Model</Text>
-                                    <Input variant='outline' placeholder='Device Model' />
+                                    <Text fontWeight='medium'>Username</Text>
+                                    <Input variant='outline' placeholder='Username' />
                                 </Stack>
                             </Flex>
 
                             <Flex bg='white' width='100%' marginBottom='10px'>
                                 <Stack width='100%'>
-                                    <Text fontWeight='medium'>Brand</Text>
-                                    <Input variant='outline' placeholder='Device Brand' />
+                                    <Text fontWeight='medium'>Password</Text>
+                                    <InputGroup>
+                                    <Input variant='outline' placeholder='Password' type={show ? 'text' : 'password'}/>
+                                    <InputRightElement width='3rem'>
+                                        { show ?
+                                        <IconButton
+                                        height='35px'
+                                        bg='white'
+                                        _hover={{bg:'white'}}
+                                        icon={<HiEyeOff/>}
+                                        onClick={handleClick}/> :
+                                        <IconButton
+                                        height='35px'
+                                        bg='white'
+                                        _hover={{bg:'white'}}
+                                        icon={<HiEye/>}
+                                        onClick={handleClick}/>
+                                        }
+                                    </InputRightElement>
+                                    </InputGroup>
                                 </Stack>
                             </Flex>
                         </CardBody>
@@ -119,4 +122,4 @@ const AddDevicePage = () => {
     )
 }
 
-export default AddDevicePage;
+export default EditAccountPage;

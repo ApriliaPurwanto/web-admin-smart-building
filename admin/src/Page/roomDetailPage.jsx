@@ -42,7 +42,7 @@ import { useNavigate } from "react-router-dom";
 const RoomDetailPage = () => {
     const navigate = useNavigate();
     const navigateToRoomEdit = () => {
-        navigate('/admin/room/room-edit');
+        navigate('/admin/room/edit-room');
       };
 
     const { isOpen, onOpen, onClose } = useDisclosure()

@@ -5,8 +5,6 @@ import {
 	Navigate,
 } from "react-router-dom";
 import Login from "./Page/loginPage";
-import Dashboard from "./Page/dashboard";
-import Room from "./Page/room";
 import Navigation from "./Components/Navigation/navigation";
 import DashboardPage from "./Page/dashboardPage";
 import RoomPage from "./Page/roomPage";
@@ -16,6 +14,9 @@ import AddRoomPage from "./Page/addRoomPage";
 import AddDevicePage from "./Page/addDevicePage";
 import RoomDetailPage from "./Page/roomDetailPage";
 import EditRoomPage from "./Page/editRoomPage";
+import EditDevicePage from "./Page/editDevicePage";
+import AddAccountPage from "./Page/addAccountPage";
+import EditAccountPage from "./Page/editAccountPage";
 
 function App() {
   return (
@@ -28,13 +29,16 @@ function App() {
 
         <Route path="room" element={<RoomPage/>}/>
         <Route path="room/add-room" element={<AddRoomPage/>}/>
-        <Route path="room/room-detail" element={<RoomDetailPage/>}/>
-        <Route path="room/room-edit" element={<EditRoomPage/>}/>
+        <Route path="room/edit-room" element={<EditRoomPage/>}/>
+        <Route path="room/detail-room" element={<RoomDetailPage/>}/>
 
         <Route path="device" element={<DevicePage/>}/>
-        <Route path="devoce/add-device" element={<AddDevicePage/>}/>
+        <Route path="device/add-device" element={<AddDevicePage/>}/>
+        <Route path="device/edit-device" element={<EditDevicePage/>}/>
 
         <Route path="account" element={<AccountPage/>}/>
+        <Route path="account/add-account" element={<AddAccountPage/>}/>
+        <Route path="account/edit-account" element={<EditAccountPage/>}/>
       </Route>
 
     </Routes>

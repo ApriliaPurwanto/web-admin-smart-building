@@ -19,15 +19,35 @@ import {
     IconButton,
     Box,
     Heading,
-    Breadcrumb,
     BreadcrumbItem,
+    Breadcrumb,
     BreadcrumbLink,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+    useToast,
 } from '@chakra-ui/react'
 import { FiChevronRight, FiPlus } from "react-icons/fi";
 import { VscCircleFilled } from "react-icons/vsc";
 import { MdAddCircleOutline, MdDelete, MdEdit } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 const DevicePage = () => {
+    const navigate = useNavigate();
+    const navigateToAddDevice = () => {
+        navigate('add-device');
+      };
+
+    const navigateToEditDevice = () => {
+        navigate('edit-device');
+    };
+
+    const { isOpen, onOpen, onClose } = useDisclosure()
     return(
         <Flex
         bg='white'
@@ -58,7 +78,7 @@ const DevicePage = () => {
                     width='100%'
                     bg='white'
                     marginTop='15px'>
-                        <Button bg='#2F8286' color='white' _hover={{bg: '#265958'}} size='md'  borderRadius='15px' fontFamily='sans-serif' fontWeight='normal'  boxShadow="base">
+                        <Button onClick={navigateToAddDevice} bg='#2F8286' color='white' _hover={{bg: '#265958'}} size='md'  borderRadius='15px' fontFamily='sans-serif' fontWeight='normal'  boxShadow="base">
                             <HStack spacing={3}>
                                 <Icon as={FiPlus} color='white'/>
                                 <Text>Add Device</Text>
@@ -100,18 +120,39 @@ const DevicePage = () => {
                                             </Td> 
                                         <Td>
                                             <HStack>
-                                                <IconButton
+                                                <IconButton onClick={navigateToEditDevice}
                                                     variant='ghost'
                                                     colorScheme='teal'
                                                     fontSize='20px'
                                                     icon={<MdEdit />}
                                                     />
-                                                <IconButton
+                                                <IconButton onClick={onOpen}
                                                     variant='ghost'
                                                     colorScheme='red'
                                                     fontSize='20px'
                                                     icon={<MdDelete/>}
                                                     />
+                                                <Modal isOpen={isOpen} onClose={onClose}>
+                                                    <ModalOverlay />
+                                                        <ModalContent>
+                                                            <ModalHeader>Delete Room</ModalHeader>
+                                                                <ModalCloseButton />
+                                                                    <ModalBody>
+                                                                        <Text>Are you sure? You can’t undo this action afterwards.</Text>
+                                                                    </ModalBody>
+
+                                                                    <ModalFooter>
+                                                                        <Button variant='ghost' mr={3} onClick={onClose}>
+                                                                        Cancel
+                                                                        </Button>
+                                                                        <Button
+                                                                        colorScheme='red'
+                                                                        
+                                                                        onClick={onClose}
+                                                                        >Delete</Button>
+                                                                    </ModalFooter>
+                                                        </ModalContent>
+                                                </Modal>
                                             </HStack>
                                         </Td>
                                     </Tr>

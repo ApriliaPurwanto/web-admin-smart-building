@@ -5,7 +5,6 @@ import { FiLogOut, FiSettings } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { routePageName } from "../../Redux/action";
-import Dashboard from "../../Page/dashboard";
 
 const Sidebar = () => {
     const navigate = useNavigate();

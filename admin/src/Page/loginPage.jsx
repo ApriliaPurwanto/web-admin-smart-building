@@ -1,10 +1,14 @@
 import React from "react";
-import { Input, InputGroup, InputLeftElement, Icon, AbsoluteCenter, Center, Stack, Button, Flex, Heading, Image, background } from '@chakra-ui/react'
+import { Input, InputGroup, InputLeftElement, Icon, AbsoluteCenter, Center, Stack, Button, Flex, Heading, Image, background, InputRightElement, IconButton } from '@chakra-ui/react'
 import { MdPersonOutline, MdLockOutline } from "react-icons/md";
+import { HiEye, HiEyeOff } from "react-icons/hi";
 import '../Style/login.css';
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const [show, setShow] = React.useState(false)
+    const handleClick = () => setShow(!show)
+
     const navigate = useNavigate();
     const navigateToDashboard = () => {
         navigate('/admin');
@@ -26,7 +30,23 @@ const Login = () => {
                 <InputLeftElement pointerEvents='none'>
                 <Icon as ={MdLockOutline} color='black' />
                 </InputLeftElement>
-                <Input type='password' placeholder='Password' width='350px' bg='white' fontFamily='sans-serif'/>
+                <Input type={show ? 'text' : 'password'} placeholder='Password' width='350px' bg='white' fontFamily='sans-serif'/>
+                <InputRightElement width='3rem'>
+                    { show ?
+                    <IconButton
+                        height='35px'
+                        bg='white'
+                        _hover={{bg:'white'}}
+                        icon={<HiEyeOff/>}
+                        onClick={handleClick}/> :
+                        <IconButton
+                        height='35px'
+                        bg='white'
+                        _hover={{bg:'white'}}
+                        icon={<HiEye/>}
+                        onClick={handleClick}/>
+                    }
+                </InputRightElement>
             </InputGroup>
 
             <Button onClick={navigateToDashboard} bg='#083828' color='white' _hover={{bg: '#0D543B'}} size='md' width='350px' borderRadius='15px' fontFamily='sans-serif' fontWeight='normal'>

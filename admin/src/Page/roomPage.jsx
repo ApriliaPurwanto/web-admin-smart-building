@@ -42,10 +42,10 @@ const RoomPage = () => {
         navigate('add-room');
       };
       const navigateToRoomDetail = () => {
-        navigate('room-detail');
+        navigate('detail-room');
       };
       const navigateToRoomEdit = () => {
-        navigate('room-edit');
+        navigate('edit-room');
       };
 
       const { isOpen, onOpen, onClose } = useDisclosure()
