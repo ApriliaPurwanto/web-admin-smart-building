@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {  Button, Card, CardBody, CardHeader, Center, Flex, HStack, Heading, Icon, Image, SimpleGrid, Spacer, Stack, Text, VStack, color, textDecoration } from '@chakra-ui/react'
-import {  MdLaptopChromebook, MdLightbulbOutline, MdHome, MdArrowUpward, MdArrowDownward } from "react-icons/md";
-import { FiLogOut } from "react-icons/fi";
+import {  Button, Card, CardBody, Center, Flex, HStack,  Icon, Image, SimpleGrid,  Stack, Text, } from '@chakra-ui/react'
+import {  MdArrowUpward, MdArrowDownward } from "react-icons/md";
 import { PieChart } from 'react-minimal-pie-chart';
-import { useNavigate } from "react-router-dom";
 
 const DashboardPage = () => {
     const [ isSecond, changeImage ] = useState(false)
+
     useEffect(() => {},[isSecond])
 
     // const navigateToRoom = () => {
@@ -93,20 +92,208 @@ const DashboardPage = () => {
                     <CardBody>
                         {
                             isSecond ?
-                            <Image
-                                objectFit='cover'
-                                src='https://p1.pxfuel.com/preview/176/155/652/cat-landscape-animals-cute-cat-eyes.jpg'
-                                alt='Chakra UI'
-                                width='100%'
-                                height='500px'
-                            /> :
-                            <Image
-                                objectFit='cover'
-                                src='https://media.istockphoto.com/id/1316920139/photo/white-angora-cat.jpg?s=612x612&w=0&k=20&c=4BjzdORizEkeSmTquuYyylKxe_C2qbbiOv4GmtJhlIk='
-                                alt='Chakra UI'
-                                width='100%'
-                                height='500px'
-                            />
+                            <div style={{width : '100%', height : '500px', display : 'table'}}>
+                                <Flex
+                                    position = 'absolute'
+                                    height  = "125px"
+                                    width = '14.3%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >Ruang Rapat Kecil</p>
+                                </Flex>
+                                <Flex
+                                    left= '16%'
+                                    position = 'absolute'
+                                    height  = "125px"
+                                    width = '25%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >WR 1</p>
+                                </Flex>
+                                <Flex
+                                    left= '55%'
+                                    position = 'absolute'
+                                    height  = "125px"
+                                    width = '25%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >WR 2</p>
+                                </Flex>
+
+                                <Flex
+                                    left= '80%'
+                                    position = 'absolute'
+                                    height  = "125px"
+                                    width = '18%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >Ruang Sekretariat</p>
+                                </Flex>
+                                <Flex
+                                    top='37%'
+                                    left= '80%'
+                                    position = 'absolute'
+                                    height  = "230px"
+                                    width = '18%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >Ruang Rektor</p>
+                                </Flex>
+                                <Flex
+                                    top='53.5%'
+                                    // left= '0%'
+                                    position = 'absolute'
+                                    height  = "270px"
+                                    width = '14.4%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >Ruang Rapat Besar</p>
+                                </Flex>
+                               
+                                <Image
+                                    src='https://res.cloudinary.com/dteondhij/image/upload/v1692254126/Denah_Gedung_A-Page-2.drawio_2_smut9z.png'
+                                    alt='Chakra UI'
+                                    width='100%'
+                                    height='500px'
+                                /> 
+                               
+                            </div>:
+                            <div style={{width : '100%', height : '500px', display : 'table'}}>
+                                <Flex
+                                    position = 'absolute'
+                                    height  = "259px"
+                                    width = '14.4%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >Ruang Hukum Tata Laksana</p>
+                                </Flex>
+                                <Flex
+                                    top= '365px'
+                                    position = 'absolute'
+                                    height  = "220px"
+                                    width = '14.4%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >Ruang Transit Tamu</p>
+                                </Flex>
+                                <Flex
+                                    left= '170px'
+                                    position = 'absolute'
+                                    height  = "160px"
+                                    width = '24.9%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >International Office</p>
+                                </Flex>
+                                <Flex
+                                    left= '580px'
+                                    position = 'absolute'
+                                    height  = "160px"
+                                    width = '14.5%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >Humas</p>
+                                </Flex>
+                                <Flex
+                                    left= '730px'
+                                    position = 'absolute'
+                                    height  = "160px"
+                                    width = '13.3%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >Gudang</p>
+                                </Flex>
+                                <Flex
+                                    left= '869px'
+                                    position = 'absolute'
+                                    height  = "160px"
+                                    width = '10.75%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >WC Perempuan</p>
+                                </Flex>
+                                <Flex
+                                    top='267px'
+                                    left= '869px'
+                                    position = 'absolute'
+                                    height  = "200px"
+                                    width = '10.75%'
+                                    // backgroundColor = 'red'
+                                    justifyContent = 'center'
+                                    alignItems= 'center'
+                                    _hover={{bg: 'red'}}
+                                    border='2px' 
+                                    borderColor='black'
+                                >
+                                     <p style={{textAlign : 'center'}} >WC Laki-Laki</p>
+                                </Flex>
+                                <Image
+                                    src='https://res.cloudinary.com/dteondhij/image/upload/v1692253916/Denah_Gedung_A-Page-1.drawio_1_sggvvr.png'
+                                    alt='Chakra UI'
+                                    width='100%'
+                                    height='500px'
+                                />
+                            </div>
                         }
                     </CardBody>
                 </Card>
