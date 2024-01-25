@@ -51,6 +51,26 @@ const RoomPage = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
 
+    const deleteData = (id) => {
+
+        let token = localStorage.getItem("Token")
+
+        console.log(id)
+        axios.delete(
+            'https://itera-smartbuilding.com/rooms/' + id,
+            {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+            }
+        ).then((response) => {
+            console.log(response)
+            // window.location.reload()
+            alert('Sukses')
+        }).catch((e) => alert('Error: ' + e))
+    }
+
     useEffect(() => {
         const getData = async () => {
 
@@ -59,7 +79,8 @@ const RoomPage = () => {
                 'https://itera-smartbuilding.com/rooms',
                 {
                     headers: {
-                        Authorization: `Bearer ${token}`,
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
                     },
                 }
             ).then((placement) => {
@@ -72,7 +93,7 @@ const RoomPage = () => {
         getData()
     }, [])
 
-    if(isLoading){
+    if (isLoading) {
         return <h1>Loading</h1>
     }
 
@@ -122,6 +143,7 @@ const RoomPage = () => {
                                 <Thead>
                                     <Tr>
                                         <Th isNumeric>No.</Th>
+                                        <Th >Id</Th>
                                         <Th>Room Name</Th>
                                         <Th>Status</Th>
                                         <Th>Description</Th>
@@ -135,17 +157,18 @@ const RoomPage = () => {
                                                 <>
                                                     <Tr>
                                                         <Td isNumeric>{index + 1}</Td>
+                                                        <Td>{value.id}</Td> 
                                                         <Td onClick={navigateToRoomDetail} cursor='pointer'>{value.name}</Td>
                                                         <Td>{value.status}</Td>
                                                         <Td>{value.description}</Td>
                                                         <Td>
                                                             <HStack>
-                                                                <IconButton onClick={navigateToRoomEdit}
+                                                                {/* <IconButton onClick={navigateToRoomEdit}
                                                                     variant='ghost'
                                                                     colorScheme='teal'
                                                                     fontSize='20px'
                                                                     icon={<MdEdit />}
-                                                                />
+                                                                /> */}
                                                                 <IconButton onClick={onOpen}
                                                                     variant='ghost'
                                                                     colorScheme='red'
@@ -168,7 +191,7 @@ const RoomPage = () => {
                                                                             <Button
                                                                                 colorScheme='red'
 
-                                                                                onClick={onClose}
+                                                                                onClick={() => deleteData(value.id)}
                                                                             >Delete</Button>
                                                                         </ModalFooter>
                                                                     </ModalContent>

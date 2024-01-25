@@ -116,7 +116,7 @@ const Sidebar = () => {
                 </Link>  
             </HStack>
 
-            <HStack 
+            {/* <HStack 
                 spacing={6}
                 w='90%'
                 justifyContent='flex-start'
@@ -139,7 +139,7 @@ const Sidebar = () => {
                     fontSize={22}
                     color={routeName=='Account'? '#2F8286':'white'}>Admin</Text>
                 </Link>  
-            </HStack>           
+            </HStack>            */}
         </VStack>
 
         <Flex
