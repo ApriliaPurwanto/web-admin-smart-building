@@ -29,7 +29,7 @@ import {
 } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 import { FiChevronRight, FiPlus } from "react-icons/fi";
-import { MdDelete, MdEdit } from 'react-icons/md';
+import { MdDelete } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 

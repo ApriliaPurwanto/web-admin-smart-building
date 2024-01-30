@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
 import { Flex, Heading} from '@chakra-ui/react'
 import Sidebar from "./sidebar";
-import DashboardPage from "../../Page/dashboardPage";
 import { Outlet } from 'react-router-dom'
 import { useSelector } from "react-redux";
 
