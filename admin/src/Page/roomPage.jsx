@@ -66,7 +66,7 @@ const RoomPage = () => {
             }
         ).then((response) => {
             console.log(response)
-            // window.location.reload()
+            window.location.reload()
             alert('Sukses')
         }).catch((e) => alert('Error: ' + e))
     }
@@ -181,7 +181,7 @@ const RoomPage = () => {
                                                                         <ModalHeader>Delete Room</ModalHeader>
                                                                         <ModalCloseButton />
                                                                         <ModalBody>
-                                                                            <Text>Are you sure? You can’t undo this action afterwards.</Text>
+                                                                            <Text>Are you sure? You can’t {value.name}</Text>
                                                                         </ModalBody>
 
                                                                         <ModalFooter>

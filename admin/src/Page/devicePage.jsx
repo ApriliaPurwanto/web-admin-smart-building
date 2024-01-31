@@ -54,7 +54,7 @@ const DevicePage = () => {
         let token = localStorage.getItem("Token")
 
         axios.delete(
-            'https://itera-smartbuilding.com/firebases' + id,
+            'https://itera-smartbuilding.com/firebases/' + id,
             {
                 headers: {
                     'Authorization': `Bearer ${token}`,
